@@ -1,0 +1,31 @@
+  import java.util.Scanner;
+  class quadratic_equation
+{
+    public static void main(String[]args)
+ {
+   double a, b, c, sum, root1, root2;
+   Scanner in = new Scanner(System.in);
+   System.out.println("Enter the constants a, b, and c for the quadratic equation ax^2 + bx + c");
+   a=in.nextDouble();
+   b=in.nextDouble();
+   c=in.nextDouble();
+   sum= (b*b)-(4*a*c);
+   if(sum>0)
+  {
+   System.out.println("Roots are real and unequal" + sum);
+   root1=(-b + Math.sqrt(sum))/(2*a);
+   root2=(-b - Math.sqrt(sum))/(2*a);
+   System.out.println("Roots are" + root1 + "and" + root2 );
+  }
+   else if(sum==0)
+  {
+   System.out.println("Roots are real and equal." + sum);
+   root1 = root2 = (-b)/(2*a);
+   System.out.println("Roots of the quadratic equation are "+ root1 +" and "+ root2);
+  }
+  else if(sum<0)
+  {
+    System.out.println("Roots are unreal" + sum);
+  }
+ }
+}
