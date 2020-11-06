@@ -1,0 +1,86 @@
+import java.util.Scanner;
+ class Student
+{
+ String name;
+ String usn;
+ int credits[] = new int[5];
+ int gradepoints[] = new int[5];
+ double marks[] = new double[5];
+ int i;
+ int total_credits=0;
+ int gpa=0;
+ Scanner in = new Scanner(System.in);
+ void getdetails()
+ {
+  System.out.println("Enter the Name of Student: ");
+  name = in.nextLine();
+  System.out.println("Enter the USN of Student: ");
+  usn = in.nextLine();
+  System.out.println("Enter the Credits in the subjects: ");
+  for(i=0;i<5;i++)
+  {
+   credits[i] = in.nextInt();
+   total_credits = total_credits + credits[i];
+  }
+  System.out.println("Enter the Marks in the subjects(0-100): ");
+  for(i=0;i<5;i++)
+  {
+   marks[i] = in.nextDouble();
+  }
+ }
+ void displaydetails()
+ {
+ System.out.println("Student Name: "+name);
+ System.out.println("Student USN: "+usn);
+ for(i=0;i<5;i++)
+  {
+   System.out.println("Subject "+(i+1)+" --> Marksscored: "+marks[i]+" Credit: "+credits[i]);
+  }
+ System.out.println("GPA: "+(double)gpa/total_credits);
+}
+void gpa()
+{
+for(i=0;i<5;i++)
+{
+if(marks[i]>=91 && marks[i]<=100)
+{
+gradepoints[i] = 10;
+}
+else if(marks[i]>=81)
+{
+gradepoints[i] = 9;
+}
+else if(marks[i]>=71)
+{
+gradepoints[i] = 8;
+}
+else if(marks[i]>=61)
+{
+gradepoints[i] = 7;
+}
+else if(marks[i]>=51)
+{
+gradepoints[i] = 6;
+}
+else if(marks[i]>=41)
+{
+gradepoints[i] = 5;
+}
+else if(marks[i]>0 && marks[i]<40)
+{
+gradepoints[i] = 0;
+}
+gpa = gpa + (gradepoints[i]*credits[i]);
+}
+}
+}
+class Lab2
+{
+ public static void main(String args[])
+ {
+  Student std1 = new Student();
+  std1.getdetails();
+  std1.gpa();
+  std1.displaydetails();
+ }
+}
